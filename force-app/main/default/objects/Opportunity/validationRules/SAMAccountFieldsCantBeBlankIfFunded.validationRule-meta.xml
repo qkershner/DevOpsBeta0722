@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SAMAccountFieldsCantBeBlankIfFunded</fullName>
+    <active>true</active>
+    <description>SAM Account fields need to be filled in before opportunity can be funded</description>
+    <errorConditionFormula>AND( 
+(RecordType.DeveloperName = &quot;SAM_Opportunity&quot; &amp;&amp; ISPICKVAL(StageName, &quot;Funded&quot;)), 
+OR(ISBLANK(Account_No__c), 
+ISPICKVAL(SAM_Inv_Obj__c, &quot;&quot;),
+ISPICKVAL(Tax_Status__c, &quot;&quot;), 
+ISBLANK(SNAM__c),
+ISBLANK(Advising_Firm__c),
+ISBLANK(Advising_Firm_Contact__c),
+ISBLANK(AccountId)) 
+)</errorConditionFormula>
+    <errorMessage>Account #, SNAM, SAM Inv Obj, Tax Status, Firm Name, and Advising Firm and Contact need to be filled out before the Opportunity can be a funded Account.</errorMessage>
+</ValidationRule>
