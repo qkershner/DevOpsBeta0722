@@ -4,7 +4,7 @@
     <assignments>
         <name>Add_Contact_to_Text</name>
         <label>Add Contact to Text</label>
-        <locationX>897</locationX>
+        <locationX>1326</locationX>
         <locationY>638</locationY>
         <assignmentItems>
             <assignToReference>AllAuthorizedContacts</assignToReference>
@@ -20,7 +20,7 @@
     <assignments>
         <name>Authorized_Contacts_Count</name>
         <label>Authorized Contacts Count</label>
-        <locationX>429</locationX>
+        <locationX>644</locationX>
         <locationY>278</locationY>
         <assignmentItems>
             <assignToReference>AuthorizedCount</assignToReference>
@@ -210,53 +210,9 @@
         </value>
     </choices>
     <decisions>
-        <description>If the Stage field is set to Active Engagement, Invoicing or Invoice Completed, the Engagement Letter Upload Date field must be populated.</description>
-        <name>Engagement_Letter_Upload_Date_Validation</name>
-        <label>Engagement Letter Upload Date Validation</label>
-        <locationX>512</locationX>
-        <locationY>1694</locationY>
-        <defaultConnector>
-            <targetReference>Offering_Services_Type_Validation</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Date Set</defaultConnectorLabel>
-        <rules>
-            <name>Date_Missing</name>
-            <conditionLogic>1 AND( 2 OR 3 OR 4)</conditionLogic>
-            <conditions>
-                <leftValueReference>Engagement_Letter_Upload_Date</leftValueReference>
-                <operator>EqualTo</operator>
-            </conditions>
-            <conditions>
-                <leftValueReference>Stage</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <elementReference>ActiveEngagement</elementReference>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>Stage</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <elementReference>Invoicing</elementReference>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>Stage</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <elementReference>InvoiceCompleted</elementReference>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Engagement_Letter_Date_Required</targetReference>
-            </connector>
-            <label>Date Missing</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>How_Many_Authorized_Contacts</name>
         <label>How Many Authorized Contacts</label>
-        <locationX>429</locationX>
+        <locationX>644</locationX>
         <locationY>398</locationY>
         <defaultConnector>
             <targetReference>Loop_Authorized_Contacts</targetReference>
@@ -281,7 +237,7 @@
     <decisions>
         <name>Is_KYC_Checkbox_Selected</name>
         <label>Is KYC Checkbox Selected</label>
-        <locationX>809</locationX>
+        <locationX>1238</locationX>
         <locationY>1214</locationY>
         <defaultConnector>
             <targetReference>KYC_Checkbox_Required</targetReference>
@@ -304,22 +260,26 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Offering_Services_Type_Validation</name>
-        <label>Offering Services Type Validation</label>
-        <locationX>710</locationX>
-        <locationY>1814</locationY>
+        <name>Required_Fields</name>
+        <label>Required Fields</label>
+        <locationX>842</locationX>
+        <locationY>1694</locationY>
         <defaultConnector>
             <targetReference>Create_New_SBS_Engagement</targetReference>
         </defaultConnector>
-        <defaultConnectorLabel>Offering Services type not required</defaultConnectorLabel>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Offering_Services_Type_missing</name>
-            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <name>Upload_Date_Only_Missing</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>Engagement_Letter_Upload_Date</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
             <conditions>
                 <leftValueReference>Offering_or_Services_Role</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
-                    <booleanValue>true</booleanValue>
+                    <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
             <conditions>
@@ -337,12 +297,97 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Offering_Services_Type_Required</targetReference>
+                <targetReference>Engagement_Letter_Date_Required_Only</targetReference>
             </connector>
-            <label>Offering Services Type missing</label>
+            <label>Upload Date Only Missing Last 2 Stages</label>
+        </rules>
+        <rules>
+            <name>Offering_Service_Type_Only_Missing</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>Offering_or_Services_Role</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Engagement_Letter_Upload_Date</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <conditions>
+                <leftValueReference>Stage</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Invoicing</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Stage</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>InvoiceCompleted</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Offering_Services_Type_Required_Only</targetReference>
+            </connector>
+            <label>Offering Service Type Only Missing</label>
+        </rules>
+        <rules>
+            <name>Both_Fields_Missing</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>Offering_or_Services_Role</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Engagement_Letter_Upload_Date</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <conditions>
+                <leftValueReference>Stage</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Invoicing</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Stage</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>InvoiceCompleted</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Date_And_Offering_Services_Type_Required</targetReference>
+            </connector>
+            <label>Both Fields Missing</label>
+        </rules>
+        <rules>
+            <name>Upload_Date_Active_Stage_Missing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Engagement_Letter_Upload_Date</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <conditions>
+                <leftValueReference>Stage</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ActiveEngagement</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Engagement_Letter_Date_Required_Only_0</targetReference>
+            </connector>
+            <label>Upload Date Active Stage Missing</label>
         </rules>
     </decisions>
-    <description>Added logic to make Offering Services Type required at specific stages and fixed component visibility for hot fix</description>
+    <description>added additional outcome to Required fields Decision point.</description>
     <dynamicChoiceSets>
         <name>AnticipatedRevenueMonthPicklist</name>
         <dataType>Picklist</dataType>
@@ -388,7 +433,7 @@
     <loops>
         <name>Loop_Authorized_Contacts</name>
         <label>Loop Authorized Contacts</label>
-        <locationX>809</locationX>
+        <locationX>1238</locationX>
         <locationY>518</locationY>
         <collectionReference>GetAuthorizedContacts</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -421,8 +466,8 @@
     <recordCreates>
         <name>Create_New_SBS_Engagement</name>
         <label>Create New SBS Engagement</label>
-        <locationX>842</locationX>
-        <locationY>1934</locationY>
+        <locationX>1370</locationX>
+        <locationY>1814</locationY>
         <connector>
             <targetReference>SBS_Engagement_Created</targetReference>
         </connector>
@@ -528,7 +573,7 @@
     <recordLookups>
         <name>Get_Authorized_Contacts</name>
         <label>Get Authorized Contacts</label>
-        <locationX>429</locationX>
+        <locationX>644</locationX>
         <locationY>158</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -563,7 +608,7 @@
     <recordLookups>
         <name>Get_Current_User_Contact_Firm</name>
         <label>Get Current User Contact Firm</label>
-        <locationX>512</locationX>
+        <locationX>842</locationX>
         <locationY>1334</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -586,7 +631,7 @@
     <recordLookups>
         <name>Get_Issuer_Id</name>
         <label>Get Issuer Id</label>
-        <locationX>809</locationX>
+        <locationX>1238</locationX>
         <locationY>854</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -609,7 +654,7 @@
     <recordLookups>
         <name>Get_SBS_Engagement_Record_Type</name>
         <label>Get SBS Engagement Record Type</label>
-        <locationX>809</locationX>
+        <locationX>1238</locationX>
         <locationY>974</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -634,11 +679,11 @@
     <recordLookups>
         <name>Get_Services_Fee_Metadata</name>
         <label>Get Services Fee Metadata</label>
-        <locationX>512</locationX>
+        <locationX>842</locationX>
         <locationY>1574</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Engagement_Letter_Upload_Date_Validation</targetReference>
+            <targetReference>Required_Fields</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -653,15 +698,47 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <screens>
-        <name>Engagement_Letter_Date_Required</name>
-        <label>Engagement Letter Date Required</label>
+        <name>Date_And_Offering_Services_Type_Required</name>
+        <label>Date and Offering Services Type Required</label>
+        <locationX>842</locationX>
+        <locationY>1814</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Both_Fields_Required</name>
+            <fieldText>&lt;p&gt;The Engagement Letter Upload Date and Offering or Services Type are required.  Click Previous to return and enter a date and type.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Engagement_Letter_Date_Required_Only</name>
+        <label>Engagement Letter Date Required Only</label>
         <locationX>314</locationX>
         <locationY>1814</locationY>
         <allowBack>true</allowBack>
         <allowFinish>false</allowFinish>
         <allowPause>false</allowPause>
         <fields>
-            <name>DateIsRequired</name>
+            <name>DateIsRequired_0_0</name>
+            <fieldText>&lt;p&gt;The Engagement Letter Upload Date is required.  Click Previous to return and enter a date.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Engagement_Letter_Date_Required_Only_0</name>
+        <label>Engagement Letter Date Required Only</label>
+        <locationX>1106</locationX>
+        <locationY>1814</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>DateIsRequired_0_0_0_0</name>
             <fieldText>&lt;p&gt;The Engagement Letter Upload Date is required.  Click Previous to return and enter a date.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
@@ -671,7 +748,7 @@
     <screens>
         <name>Know_Your_Client</name>
         <label>Know Your Client</label>
-        <locationX>809</locationX>
+        <locationX>1238</locationX>
         <locationY>1094</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -794,7 +871,7 @@
         <description>You must.  Click Previous.</description>
         <name>KYC_Checkbox_Required</name>
         <label>KYC Checkbox Required</label>
-        <locationX>1106</locationX>
+        <locationX>1634</locationX>
         <locationY>1334</locationY>
         <allowBack>true</allowBack>
         <allowFinish>false</allowFinish>
@@ -810,7 +887,7 @@
     <screens>
         <name>New_SBS_Engagement</name>
         <label>New SBS Engagement</label>
-        <locationX>512</locationX>
+        <locationX>842</locationX>
         <locationY>1454</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -1045,15 +1122,15 @@ VALUE( {!Anticipated_Revenue_Year} ) &gt;= YEAR(TODAY())
         <showHeader>true</showHeader>
     </screens>
     <screens>
-        <name>Offering_Services_Type_Required</name>
-        <label>Offering Services Type Required</label>
+        <name>Offering_Services_Type_Required_Only</name>
+        <label>Offering Services Type Required Only</label>
         <locationX>578</locationX>
-        <locationY>1934</locationY>
+        <locationY>1814</locationY>
         <allowBack>true</allowBack>
         <allowFinish>false</allowFinish>
         <allowPause>false</allowPause>
         <fields>
-            <name>DateIsRequired_0</name>
+            <name>DateIsRequired_0_0_0</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;The Offering and Services Type is required.  Click Previous to return and enter a type.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
@@ -1063,8 +1140,8 @@ VALUE( {!Anticipated_Revenue_Year} ) &gt;= YEAR(TODAY())
     <screens>
         <name>SBS_Engagement_Created</name>
         <label>SBS Engagement Created</label>
-        <locationX>842</locationX>
-        <locationY>2054</locationY>
+        <locationX>1370</locationX>
+        <locationY>1934</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -1077,13 +1154,13 @@ VALUE( {!Anticipated_Revenue_Year} ) &gt;= YEAR(TODAY())
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>303</locationX>
+        <locationX>518</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_Authorized_Contacts</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <textTemplates>
         <name>SingleAuthorizedContact</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
