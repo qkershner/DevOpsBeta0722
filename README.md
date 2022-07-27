@@ -1,6 +1,6 @@
 # Hi Squire!
 
-I found this repo on the github.  
+I found this repo on the github.  Maybe this could be a private repo.
 
 # Salesforce DX Project: Next Steps
 
