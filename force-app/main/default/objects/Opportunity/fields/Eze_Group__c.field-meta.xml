@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eze_Group__c</fullName>
+    <description>Used by EAM - SAM</description>
+    <externalId>false</externalId>
+    <label>Eze Group</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Current Equity Inc</fullName>
+                <default>false</default>
+                <label>Current Equity Inc</label>
+            </value>
+            <value>
+                <fullName>Div Growth Core Only</fullName>
+                <default>false</default>
+                <label>Div Growth Core Only</label>
+            </value>
+            <value>
+                <fullName>DSIP 3 year</fullName>
+                <default>false</default>
+                <label>DSIP 3 year</label>
+            </value>
+            <value>
+                <fullName>Large Cap Core Only</fullName>
+                <default>false</default>
+                <label>Large Cap Core Only</label>
+            </value>
+            <value>
+                <fullName>SAM 1</fullName>
+                <default>false</default>
+                <label>SAM 1</label>
+            </value>
+            <value>
+                <fullName>SAM 2</fullName>
+                <default>false</default>
+                <label>SAM 2</label>
+            </value>
+            <value>
+                <fullName>SAM 3</fullName>
+                <default>false</default>
+                <label>SAM 3</label>
+            </value>
+            <value>
+                <fullName>SAM Custom Alaska</fullName>
+                <default>false</default>
+                <label>SAM Custom Alaska</label>
+            </value>
+            <value>
+                <fullName>SAM Custom DG</fullName>
+                <default>false</default>
+                <label>SAM Custom DG</label>
+            </value>
+            <value>
+                <fullName>SAM Equity BLH</fullName>
+                <default>false</default>
+                <label>SAM Equity BLH</label>
+            </value>
+            <value>
+                <fullName>SAM Equity BLH DG</fullName>
+                <default>false</default>
+                <label>SAM Equity BLH DG</label>
+            </value>
+            <value>
+                <fullName>SAM Equity JRM</fullName>
+                <default>false</default>
+                <label>SAM Equity JRM</label>
+            </value>
+            <value>
+                <fullName>SAM Equity JRM DG</fullName>
+                <default>false</default>
+                <label>SAM Equity JRM DG</label>
+            </value>
+            <value>
+                <fullName>SAM Equity MAX</fullName>
+                <default>false</default>
+                <label>SAM Equity MAX</label>
+            </value>
+            <value>
+                <fullName>SAM Equity MAX DG</fullName>
+                <default>false</default>
+                <label>SAM Equity MAX DG</label>
+            </value>
+            <value>
+                <fullName>SAM Equity MHS</fullName>
+                <default>false</default>
+                <label>SAM Equity MHS</label>
+            </value>
+            <value>
+                <fullName>SAM Equity MHS DG</fullName>
+                <default>false</default>
+                <label>SAM Equity MHS DG</label>
+            </value>
+            <value>
+                <fullName>SAM Equity MJT</fullName>
+                <default>false</default>
+                <label>SAM Equity MJT</label>
+            </value>
+            <value>
+                <fullName>SAM Equity MJT DG</fullName>
+                <default>false</default>
+                <label>SAM Equity MJT DG</label>
+            </value>
+            <value>
+                <fullName>SAM Exempt</fullName>
+                <default>false</default>
+                <label>SAM Exempt</label>
+            </value>
+            <value>
+                <fullName>SAM Exempt DG</fullName>
+                <default>false</default>
+                <label>SAM Exempt DG</label>
+            </value>
+            <value>
+                <fullName>Alaska 3 year</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Alaska 3 year</label>
+            </value>
+            <value>
+                <fullName>OTH5GI</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OTH5GI</label>
+            </value>
+            <value>
+                <fullName>OTH5GI - on model</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OTH5GI - on model</label>
+            </value>
+            <value>
+                <fullName>OTH5GI – on model</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OTH5GI – on model</label>
+            </value>
+            <value>
+                <fullName>SAM 3 (EXEMPT)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>SAM 3 (EXEMPT)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

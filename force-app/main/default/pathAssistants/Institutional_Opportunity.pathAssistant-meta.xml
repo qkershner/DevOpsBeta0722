@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>Institutional Opportunity</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Account_No__c</fieldNames>
+        <fieldNames>SNAM__c</fieldNames>
+        <picklistValueName>Finals/Proposal</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <picklistValueName>Funded</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Account_No__c</fieldNames>
+        <fieldNames>SNAM__c</fieldNames>
+        <picklistValueName>Live Search</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Account_No__c</fieldNames>
+        <fieldNames>SNAM__c</fieldNames>
+        <picklistValueName>Preliminary Stages</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Account_No__c</fieldNames>
+        <fieldNames>SNAM__c</fieldNames>
+        <picklistValueName>Verbal Win</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Institutional_Opportunity</recordTypeName>
+</PathAssistant>
