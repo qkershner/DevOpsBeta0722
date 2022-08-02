@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InstitAccountFieldsCantBeBlankIfFunded</fullName>
+    <active>false</active>
+    <description>Deactivated Aug 2022 per story US123865
+Institutional Account fields need to be filled in before opportunity can be funded</description>
+    <errorConditionFormula>AND( 
+(RecordType.DeveloperName = &quot;Institutional_Opportunity&quot; &amp;&amp; ISPICKVAL(StageName, &quot;Funded&quot;)), 
+OR(ISBLANK(Account_No__c),  
+ISBLANK( SNAM__c ),
+ISBLANK(Amount), 
+ISBLANK(AccountId)))</errorConditionFormula>
+    <errorMessage>Account #, SNAM, Firm Name, and Amount need to be filled out before the Opportunity can be a funded Account.</errorMessage>
+</ValidationRule>
