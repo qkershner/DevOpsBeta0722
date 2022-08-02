@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SAM_Opportunity</fullName>
+    <active>true</active>
+    <businessProcess>Equity Opportunity Process</businessProcess>
+    <compactLayoutAssignment>Equity_Opportunity_Default</compactLayoutAssignment>
+    <label>SAM Opportunity</label>
+    <picklistValues>
+        <picklist>Account_Benchmark__c</picklist>
+        <values>
+            <fullName>Custom</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Account_Status__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Process</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Terminated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Workout</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Account_Type__c</picklist>
+        <values>
+            <fullName>Corporate Capital</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Corporate Retirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DC - 401k</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DC - 403b</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DC - 457</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DC - Money Purchase</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DC - Profit Sharing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ERISA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ESOP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Endowment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Endowments%2FFoundations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Foundation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>High Net Worth</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Insurance Reserves</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mutual Fund</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Qualified Plan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Private Wealth</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Public Plans</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Self Insured Fund</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sub-Advisory</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Taft-Hartley</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WRAP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Working Capital</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Asset_Allocation__c</picklist>
+        <values>
+            <fullName>50%2F50</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>60%2F40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>70%2F30</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>80%2F20</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>90%2F10</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>All Equity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Cross_Sell_New__c</picklist>
+        <values>
+            <fullName>Existing Client</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Client</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DB_Competitor__c</picklist>
+        <values>
+            <fullName>Competitor A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competitor B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competitor C</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ERISA_Status__c</picklist>
+        <values>
+            <fullName>ERISA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-ERISA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Public Pension Plan Subject to ERISA</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Eze_Group__c</picklist>
+        <values>
+            <fullName>Current Equity Inc</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DSIP 3 year</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Div Growth Core Only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Large Cap Core Only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAM 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAM 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAM 3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAM Custom DG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAM Equity BLH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAM Equity BLH DG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAM Equity JRM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAM Equity JRM DG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAM Equity MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAM Equity MAX DG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAM Equity MHS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAM Equity MHS DG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAM Equity MJT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAM Equity MJT DG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAM Exempt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAM Exempt DG</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Fixed_Income__c</picklist>
+        <values>
+            <fullName>Corporate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Municipal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ForecastCategoryName</picklist>
+        <values>
+            <fullName>Best Case</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pipeline</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Investment_Objectives__c</picklist>
+        <values>
+            <fullName>Balanced with Funds</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Balanced with Stock</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Equity with Funds</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Equity with Stock</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LeadSource</picklist>
+        <values>
+            <fullName>Advertisement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consultant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Employee Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Existing Relationship</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>External Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Public Relations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Roadshow</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Seminar - Internal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Seminar - Partner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trade Show</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Word of mouth</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority_wmp__c</picklist>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Top</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reasons_for_Decline_wmp__c</picklist>
+        <values>
+            <fullName>Not Interested</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>SAM_Inv_Obj__c</picklist>
+        <values>
+            <fullName>Dividend Growth</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Funds</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Large Cap Core Only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAM Custom %E2%80%93 DG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAM Custom %E2%80%93 SP5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAM Strategic</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Share_Class__c</picklist>
+        <values>
+            <fullName>Both</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Institutional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investor</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Target_Close_wmp__c</picklist>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Final</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Tax_Status__c</picklist>
+        <values>
+            <fullName>Tax-Exempt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Taxable</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Existing Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Existing LP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New LP</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Vehicle__c</picklist>
+        <values>
+            <fullName>Mutual Fund</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SMA</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>
