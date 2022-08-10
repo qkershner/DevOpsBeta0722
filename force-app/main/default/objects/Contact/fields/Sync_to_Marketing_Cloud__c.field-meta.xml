@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sync_to_Marketing_Cloud__c</fullName>
+    <description>This field represents a way to create a Boolean check on contacts to prevent unwanted contacts from syncing into Marketing Cloud through a series of checks.</description>
+    <externalId>false</externalId>
+    <formula>AND( 
+Email &lt;&gt; &quot;&quot;, 
+HasOptedOutOfEmail = FALSE,
+Case(RecordType.DeveloperName,
+&apos;Baird_Financial_Advisor_Baird_Advisors&apos;,1,
+&apos;Baird_Advisors_Contact&apos;,1,
+&apos;Consultant_Baird_Advisors&apos;,1,
+&apos;Institutional_Contact_Baird_Advisors&apos;,1,
+&apos;Intermediary_Contact_Baird_Advisors&apos;,1,
+&apos;Baird_FA_Client&apos;,1,
+&apos;Baird_Financial_Advisor_BC&apos;,1,
+&apos;Master_Record_Type&apos;,1,
+&apos;Talent_Acquisition_Contact&apos;,1,
+&apos;Baird_Capital_Contact&apos;,1,
+&apos;Baird_Financial_Advisor_Equity&apos;,1,
+&apos;Consultant_Equity&apos;,1,
+&apos;Institutional_Contact_Equity&apos;,1,
+&apos;Intermediary_Contact_Equity&apos;,1,
+0)=1
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This record meets the criteria to be synchronized into Marketing Cloud; Email Opt Out = False, Email field is not blank, and RecordType is aligned with BU existing in Marketing Cloud.</inlineHelpText>
+    <label>Sync to Marketing Cloud</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>
