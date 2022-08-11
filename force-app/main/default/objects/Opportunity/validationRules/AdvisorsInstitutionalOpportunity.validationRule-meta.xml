@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AdvisorsInstitutionalOpportunity</fullName>
+    <active>true</active>
+    <description>Validates the required fields (Amount, Firm Name, Internal Account #) for Advisors Institutional Opportunities in the Verbal Win and Funded stages.</description>
+    <errorConditionFormula>IF(
+AND(
+RecordType.DeveloperName = &quot;Institutional_Opportunity_Advisors&quot;, ISPICKVAL(StageName, &quot;Verbal Win&quot;),
+OR (
+ISBLANK(AccountId),
+ISBLANK(Amount)
+)
+),
+TRUE,
+IF(
+AND(
+RecordType.DeveloperName = &quot;Institutional_Opportunity_Advisors&quot;, ISPICKVAL(StageName, &quot;Funded&quot;),
+OR (
+ISBLANK(AccountId),
+ISBLANK(Amount),
+ISBLANK(Internal_Account_no__c)
+)
+),
+TRUE,
+FALSE
+))</errorConditionFormula>
+    <errorMessage>Institutional Opportunities in the Verbal Win stage must have a Firm Name and Amount. Funded accounts also require an Internal Account #.</errorMessage>
+</ValidationRule>
